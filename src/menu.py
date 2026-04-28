@@ -6,6 +6,7 @@ from service import (
     eliminar_registro
 )
 from colorama import init, Fore, Style, Back
+from integration import export_to_csv, generate_report
 
 init(autoreset=True)
 
@@ -20,7 +21,8 @@ def menu():
         print(Fore.RED + "3. Buscar registro")
         print(Fore.WHITE + "4. Actualizar registro")
         print(Fore.RED + "5. Eliminar registro")
-        print(Fore.WHITE + "6. Salir")
+        print(Fore.WHITE + "6. Exportar a CSV")
+        print(Fore.RED + "7. Salir")
 
         opcion = input(Fore.WHITE + "\nSeleccione una opción: ")
 
@@ -57,6 +59,10 @@ def menu():
             id = input(Style.BRIGHT + "Ingrese ID a eliminar: ")
             eliminar_registro(id)
         elif opcion == "6":
+            export_to_csv()
+        elif opcion == "8":
+            generate_report()
+        elif opcion == "7":
             print(Fore.RED + "Saliendo del sistema...")
             break
 
